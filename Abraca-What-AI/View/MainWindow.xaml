@@ -1,0 +1,398 @@
+﻿<Window x:Class="Abraca_What_AI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="clr-namespace:Abraca_What_AI.ViewModel"
+        xmlns:m="clr-namespace:Abraca_What_AI.Model"
+        xmlns:conv="clr-namespace:Abraca_What_AI.Converters"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:mvvm="http://www.galasoft.ch/mvvmlight"
+        mc:Ignorable="d"
+        Title="Abraca... What? Super Intelligent Probability Calculator" Height="210" Width="500"
+        Background="LightSteelBlue">
+    <Window.DataContext>
+        <vm:MainWindowVM/>
+    </Window.DataContext>
+    <Window.Resources>
+        <conv:ButtonBoolToColor x:Key="ButtonBoolToColor"/>
+        <conv:ButtonBoolToColorMouseOver x:Key="ButtonBoolToColorMouseOver"/>
+    </Window.Resources>
+    <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="60"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Row="0" Grid.ColumnSpan="3" HorizontalAlignment="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="30"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="30"/>
+                <ColumnDefinition Width="30"/>
+                <ColumnDefinition Width="30"/>
+                <ColumnDefinition Width="30"/>
+                <ColumnDefinition Width="30"/>
+                <ColumnDefinition Width="30"/>
+                <ColumnDefinition Width="30"/>
+                <ColumnDefinition Width="30"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Row="0" Grid.ColumnSpan="8" Content="Known Tiles" FontWeight="Bold" HorizontalAlignment="Center"/>
+
+            <Label Grid.Row="2" Grid.Column="0" Content="{Binding KnownText[0]}" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Label Grid.Row="2" Grid.Column="1" Content="{Binding KnownText[1]}" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Label Grid.Row="2" Grid.Column="2" Content="{Binding KnownText[2]}" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Label Grid.Row="2" Grid.Column="3" Content="{Binding KnownText[3]}" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Label Grid.Row="2" Grid.Column="4" Content="{Binding KnownText[4]}" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Label Grid.Row="2" Grid.Column="5" Content="{Binding KnownText[5]}" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Label Grid.Row="2" Grid.Column="6" Content="{Binding KnownText[6]}" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Label Grid.Row="2" Grid.Column="7" Content="{Binding KnownText[7]}" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+            <Button Grid.Row="1" Grid.Column="0" Content="1" FontWeight="Black" Height="20" Width="20">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Click">
+                        <mvvm:EventToCommand CommandParameter="{x:Static m:Tiles.Ancient_Dragon}" Command="{Binding AddKnownCommand}"/>
+                    </i:EventTrigger>
+                    <i:EventTrigger EventName="MouseRightButtonDown">
+                        <mvvm:EventToCommand CommandParameter="{x:Static m:Tiles.Ancient_Dragon}" Command="{Binding RemoveKnownCommand}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </Button>
+            <Button Grid.Row="1" Grid.Column="1" Content="2" FontWeight="Black" Height="20" Width="20">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Click">
+                        <mvvm:EventToCommand CommandParameter="{x:Static m:Tiles.Dark_Wanderer}" Command="{Binding AddKnownCommand}"/>
+                    </i:EventTrigger>
+                    <i:EventTrigger EventName="MouseRightButtonDown">
+                        <mvvm:EventToCommand CommandParameter="{x:Static m:Tiles.Dark_Wanderer}" Command="{Binding RemoveKnownCommand}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </Button>
+            <Button Grid.Row="1" Grid.Column="2" Content="3" FontWeight="Black" Height="20" Width="20">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Click">
+                        <mvvm:EventToCommand CommandParameter="{x:Static m:Tiles.Sweet_Dream}" Command="{Binding AddKnownCommand}"/>
+                    </i:EventTrigger>
+                    <i:EventTrigger EventName="MouseRightButtonDown">
+                        <mvvm:EventToCommand CommandParameter="{x:Static m:Tiles.Sweet_Dream}" Command="{Binding RemoveKnownCommand}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </Button>
+            <Button Grid.Row="1" Grid.Column="3" Content="4" FontWeight="Black" Height="20" Width="20">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Click">
+                        <mvvm:EventToCommand CommandParameter="{x:Static m:Tiles.Night_Singer}" Command="{Binding AddKnownCommand}"/>
+                    </i:EventTrigger>
+                    <i:EventTrigger EventName="MouseRightButtonDown">
+                        <mvvm:EventToCommand CommandParameter="{x:Static m:Tiles.Night_Singer}" Command="{Binding RemoveKnownCommand}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </Button>
+            <Button Grid.Row="1" Grid.Column="4" Content="5" FontWeight="Black" Height="20" Width="20">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Click">
+                        <mvvm:EventToCommand CommandParameter="{x:Static m:Tiles.Lightning_Tempest}" Command="{Binding AddKnownCommand}"/>
+                    </i:EventTrigger>
+                    <i:EventTrigger EventName="MouseRightButtonDown">
+                        <mvvm:EventToCommand CommandParameter="{x:Static m:Tiles.Lightning_Tempest}" Command="{Binding RemoveKnownCommand}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </Button>
+            <Button Grid.Row="1" Grid.Column="5" Content="6" FontWeight="Black" Height="20" Width="20">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Click">
+                        <mvvm:EventToCommand CommandParameter="{x:Static m:Tiles.Blizzard}" Command="{Binding AddKnownCommand}"/>
+                    </i:EventTrigger>
+                    <i:EventTrigger EventName="MouseRightButtonDown">
+                        <mvvm:EventToCommand CommandParameter="{x:Static m:Tiles.Blizzard}" Command="{Binding RemoveKnownCommand}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </Button>
+            <Button Grid.Row="1" Grid.Column="6" Content="7" FontWeight="Black" Height="20" Width="20">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Click">
+                        <mvvm:EventToCommand CommandParameter="{x:Static m:Tiles.Fireball}" Command="{Binding AddKnownCommand}"/>
+                    </i:EventTrigger>
+                    <i:EventTrigger EventName="MouseRightButtonDown">
+                        <mvvm:EventToCommand CommandParameter="{x:Static m:Tiles.Fireball}" Command="{Binding RemoveKnownCommand}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </Button>
+            <Button Grid.Row="1" Grid.Column="7" Content="8" FontWeight="Black" Height="20" Width="20">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Click">
+                        <mvvm:EventToCommand CommandParameter="{x:Static m:Tiles.Magic_Elixir}" Command="{Binding AddKnownCommand}"/>
+                    </i:EventTrigger>
+                    <i:EventTrigger EventName="MouseRightButtonDown">
+                        <mvvm:EventToCommand CommandParameter="{x:Static m:Tiles.Magic_Elixir}" Command="{Binding RemoveKnownCommand}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </Button>
+
+        </Grid>
+
+        <WrapPanel Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Label Content="Unknown Tiles:" FontWeight="Bold"/>
+            <Label Content="{Binding UnknownText}"/>
+        </WrapPanel>
+        <Border Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" BorderBrush="Gray" BorderThickness="2" CornerRadius="2">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="20"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Column="0" Grid.ColumnSpan="7" Content="Hand Size" Foreground="LightGray" FontWeight="Bold" HorizontalAlignment="Center" Panel.ZIndex="-1"/>
+                <Label Grid.Column="3" Content="{Binding HandSizeText}"/>
+                <Button Grid.Column="0" Content="-" Width="18" FontWeight="Black" Command="{Binding DecHandSizeCommand}"/>
+                <Button Grid.Column="6" Content="+" Width="18" FontWeight="Black" Command="{Binding IncHandSizeCommand}"/>
+
+            </Grid>
+        </Border>
+        <Button Grid.Row="1" Grid.Column="2" Height="25" Width="80" Content="New Round" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"
+                Command="{Binding NewRoundCommand}"/>
+
+        <Grid Grid.Row="2" Grid.ColumnSpan="3">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="20"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="60"/>
+                <ColumnDefinition Width="60"/>
+                <ColumnDefinition Width="60"/>
+                <ColumnDefinition Width="60"/>
+                <ColumnDefinition Width="60"/>
+                <ColumnDefinition Width="60"/>
+                <ColumnDefinition Width="60"/>
+                <ColumnDefinition Width="60"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Row="0" Grid.Column="0" Content="{Binding ProbabilityText[0]}" Foreground="{Binding ProbabilityColor[0]}" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Label Grid.Row="0" Grid.Column="1" Content="{Binding ProbabilityText[1]}" Foreground="{Binding ProbabilityColor[1]}" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Label Grid.Row="0" Grid.Column="2" Content="{Binding ProbabilityText[2]}" Foreground="{Binding ProbabilityColor[2]}" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Label Grid.Row="0" Grid.Column="3" Content="{Binding ProbabilityText[3]}" Foreground="{Binding ProbabilityColor[3]}" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Label Grid.Row="0" Grid.Column="4" Content="{Binding ProbabilityText[4]}" Foreground="{Binding ProbabilityColor[4]}" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Label Grid.Row="0" Grid.Column="5" Content="{Binding ProbabilityText[5]}" Foreground="{Binding ProbabilityColor[5]}" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Label Grid.Row="0" Grid.Column="6" Content="{Binding ProbabilityText[6]}" Foreground="{Binding ProbabilityColor[6]}" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Label Grid.Row="0" Grid.Column="7" Content="{Binding ProbabilityText[7]}" Foreground="{Binding ProbabilityColor[7]}" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+            <Button Grid.Row="1" Grid.Column="0" Content="1" FontWeight="Black" Height="20" Width="20">
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="bdr_main" CornerRadius="2" BorderThickness="1" BorderBrush="Gray" Background="{Binding NotInHandRef[0], Converter={StaticResource ButtonBoolToColor}}">
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center" ContentSource="Content"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="bdr_main" Property="Background" Value="{Binding NotInHandRef[0], Converter={StaticResource ButtonBoolToColorMouseOver}}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="bdr_main" Property="Background" Value="DarkRed"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Button.Template>
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Click">
+                        <mvvm:EventToCommand CommandParameter="{x:Static m:Tiles.Ancient_Dragon}" Command="{Binding InHandCommand}"/>
+                    </i:EventTrigger>
+                    <i:EventTrigger EventName="MouseRightButtonDown">
+                        <mvvm:EventToCommand CommandParameter="{x:Static m:Tiles.Ancient_Dragon}" Command="{Binding NotInHandCommand}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </Button>
+            <Button Grid.Row="1" Grid.Column="1" Content="2" FontWeight="Black" Height="20" Width="20">
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="bdr_main" CornerRadius="2" BorderThickness="1" BorderBrush="Gray" Background="{Binding NotInHandRef[1], Converter={StaticResource ButtonBoolToColor}}">
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center" ContentSource="Content"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="bdr_main" Property="Background" Value="{Binding NotInHandRef[1], Converter={StaticResource ButtonBoolToColorMouseOver}}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="bdr_main" Property="Background" Value="DarkRed"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Button.Template>
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Click">
+                        <mvvm:EventToCommand CommandParameter="{x:Static m:Tiles.Dark_Wanderer}" Command="{Binding InHandCommand}"/>
+                    </i:EventTrigger>
+                    <i:EventTrigger EventName="MouseRightButtonDown">
+                        <mvvm:EventToCommand CommandParameter="{x:Static m:Tiles.Dark_Wanderer}" Command="{Binding NotInHandCommand}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </Button>
+            <Button Grid.Row="1" Grid.Column="2" Content="3" FontWeight="Black" Height="20" Width="20">
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="bdr_main" CornerRadius="2" BorderThickness="1" BorderBrush="Gray" Background="{Binding NotInHandRef[2], Converter={StaticResource ButtonBoolToColor}}">
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center" ContentSource="Content"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="bdr_main" Property="Background" Value="{Binding NotInHandRef[2], Converter={StaticResource ButtonBoolToColorMouseOver}}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="bdr_main" Property="Background" Value="DarkRed"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Button.Template>
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Click">
+                        <mvvm:EventToCommand CommandParameter="{x:Static m:Tiles.Sweet_Dream}" Command="{Binding InHandCommand}"/>
+                    </i:EventTrigger>
+                    <i:EventTrigger EventName="MouseRightButtonDown">
+                        <mvvm:EventToCommand CommandParameter="{x:Static m:Tiles.Sweet_Dream}" Command="{Binding NotInHandCommand}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </Button>
+            <Button Grid.Row="1" Grid.Column="3" Content="4" FontWeight="Black" Height="20" Width="20">
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="bdr_main" CornerRadius="2" BorderThickness="1" BorderBrush="Gray" Background="{Binding NotInHandRef[3], Converter={StaticResource ButtonBoolToColor}}">
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center" ContentSource="Content"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="bdr_main" Property="Background" Value="{Binding NotInHandRef[3], Converter={StaticResource ButtonBoolToColorMouseOver}}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="bdr_main" Property="Background" Value="DarkRed"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Button.Template>
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Click">
+                        <mvvm:EventToCommand CommandParameter="{x:Static m:Tiles.Night_Singer}" Command="{Binding InHandCommand}"/>
+                    </i:EventTrigger>
+                    <i:EventTrigger EventName="MouseRightButtonDown">
+                        <mvvm:EventToCommand CommandParameter="{x:Static m:Tiles.Night_Singer}" Command="{Binding NotInHandCommand}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </Button>
+            <Button Grid.Row="1" Grid.Column="4" Content="5" FontWeight="Black" Height="20" Width="20">
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="bdr_main" CornerRadius="2" BorderThickness="1" BorderBrush="Gray" Background="{Binding NotInHandRef[4], Converter={StaticResource ButtonBoolToColor}}">
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center" ContentSource="Content"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="bdr_main" Property="Background" Value="{Binding NotInHandRef[4], Converter={StaticResource ButtonBoolToColorMouseOver}}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="bdr_main" Property="Background" Value="DarkRed"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Button.Template>
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Click">
+                        <mvvm:EventToCommand CommandParameter="{x:Static m:Tiles.Lightning_Tempest}" Command="{Binding InHandCommand}"/>
+                    </i:EventTrigger>
+                    <i:EventTrigger EventName="MouseRightButtonDown">
+                        <mvvm:EventToCommand CommandParameter="{x:Static m:Tiles.Lightning_Tempest}" Command="{Binding NotInHandCommand}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </Button>
+            <Button Grid.Row="1" Grid.Column="5" Content="6" FontWeight="Black" Height="20" Width="20">
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="bdr_main" CornerRadius="2" BorderThickness="1" BorderBrush="Gray" Background="{Binding NotInHandRef[5], Converter={StaticResource ButtonBoolToColor}}">
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center" ContentSource="Content"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="bdr_main" Property="Background" Value="{Binding NotInHandRef[5], Converter={StaticResource ButtonBoolToColorMouseOver}}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="bdr_main" Property="Background" Value="DarkRed"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Button.Template>
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Click">
+                        <mvvm:EventToCommand CommandParameter="{x:Static m:Tiles.Blizzard}" Command="{Binding InHandCommand}"/>
+                    </i:EventTrigger>
+                    <i:EventTrigger EventName="MouseRightButtonDown">
+                        <mvvm:EventToCommand CommandParameter="{x:Static m:Tiles.Blizzard}" Command="{Binding NotInHandCommand}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </Button>
+            <Button Grid.Row="1" Grid.Column="6" Content="7" FontWeight="Black" Height="20" Width="20">
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="bdr_main" CornerRadius="2" BorderThickness="1" BorderBrush="Gray" Background="{Binding NotInHandRef[6], Converter={StaticResource ButtonBoolToColor}}">
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center" ContentSource="Content"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="bdr_main" Property="Background" Value="{Binding NotInHandRef[6], Converter={StaticResource ButtonBoolToColorMouseOver}}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="bdr_main" Property="Background" Value="DarkRed"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Button.Template>
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Click">
+                        <mvvm:EventToCommand CommandParameter="{x:Static m:Tiles.Fireball}" Command="{Binding InHandCommand}"/>
+                    </i:EventTrigger>
+                    <i:EventTrigger EventName="MouseRightButtonDown">
+                        <mvvm:EventToCommand CommandParameter="{x:Static m:Tiles.Fireball}" Command="{Binding NotInHandCommand}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </Button>
+            <Button Grid.Row="1" Grid.Column="7" Content="8" FontWeight="Black" Height="20" Width="20">
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="bdr_main" CornerRadius="2" BorderThickness="1" BorderBrush="Gray" Background="{Binding NotInHandRef[7], Converter={StaticResource ButtonBoolToColor}}">
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center" ContentSource="Content"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="bdr_main" Property="Background" Value="{Binding NotInHandRef[7], Converter={StaticResource ButtonBoolToColorMouseOver}}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="bdr_main" Property="Background" Value="DarkRed"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Button.Template>
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Click">
+                        <mvvm:EventToCommand CommandParameter="{x:Static m:Tiles.Magic_Elixir}" Command="{Binding InHandCommand}"/>
+                    </i:EventTrigger>
+                    <i:EventTrigger EventName="MouseRightButtonDown">
+                        <mvvm:EventToCommand CommandParameter="{x:Static m:Tiles.Magic_Elixir}" Command="{Binding NotInHandCommand}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </Button>
+
+        </Grid>
+    </Grid>
+</Window>
